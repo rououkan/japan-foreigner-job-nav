@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>外資系企業を目指す新卒向け就活サービスナビ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #5b6876;
+      --line: #dce3ea;
+      --paper: #f6f8fb;
+      --white: #ffffff;
+      --blue: #1d4ed8;
+      --teal: #0f766e;
+      --gold: #a16207;
+      --red: #b42318;
+      --shadow: 0 16px 42px rgba(23, 32, 42, 0.11);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      min-height: 390px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      color: #ffffff;
+      background:
+        linear-gradient(120deg, rgba(8, 47, 73, 0.92), rgba(15, 118, 110, 0.78)),
+        radial-gradient(circle at 72% 20%, rgba(252, 211, 77, 0.28), transparent 28%),
+        linear-gradient(135deg, #082f49 0%, #14532d 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 70px 70px;
+      opacity: 0.56;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(138deg, transparent 0 58%, rgba(255, 255, 255, 0.13) 58% 59%, transparent 59%),
+        radial-gradient(circle at 80% 72%, rgba(255, 255, 255, 0.18), transparent 24%);
+    }
+
+    .topbar {
+      position: absolute;
+      top: 18px;
+      right: max(18px, calc((100vw - 1120px) / 2));
+      z-index: 3;
+      display: flex;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      font-weight: 800;
+      backdrop-filter: blur(10px);
+    }
+
+    .button:hover { background: rgba(255, 255, 255, 0.24); }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 74px 0 44px;
+    }
+
+    .eyebrow {
+      margin-bottom: 18px;
+      color: #ccfbf1;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 17px;
+      line-height: 1.78;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      width: min(1120px, calc(100% - 36px));
+      margin: -32px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      min-height: 88px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 42px auto 80px;
+    }
+
+    .section {
+      margin-top: 38px;
+    }
+
+    .section:first-child { margin-top: 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .section-head p {
+      max-width: 560px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 326px;
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(23, 32, 42, 0.06);
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #f8fafc;
+      padding: 7px;
+    }
+
+    .name strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .name span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .desc {
+      margin: 16px 0 0;
+      color: #334155;
+      line-height: 1.72;
+      font-size: 14px;
+    }
+
+    .point {
+      margin: 14px 0 0;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: #f8fafc;
+      color: #334155;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .point b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #475569;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .chip.blue { background: #dbeafe; color: var(--blue); }
+    .chip.teal { background: #ccfbf1; color: var(--teal); }
+    .chip.gold { background: #fef3c7; color: var(--gold); }
+    .chip.red { background: #fee2e2; color: var(--red); }
+
+    .visit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      margin-top: auto;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .note {
+      margin-top: 44px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #ffffff;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    footer {
+      padding: 30px 18px 46px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .quick-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 470px; }
+      .topbar {
+        left: 18px;
+        right: 18px;
+      }
+
+      .button { width: 100%; }
+      .quick-stats,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar" aria-label="ページ移動">
+      <a class="button" href="index.html">メインサイトへ戻る</a>
+    </nav>
+    <div class="hero-inner">
+      <div class="eyebrow">新卒就活リンク集 · 外資系志望者向け</div>
+      <h1>外資系企業を目指す新卒向け就活サービスナビ</h1>
+      <p class="lead">帰国子女、海外大生、バイリンガル新卒、外資・コンサル・金融など難関企業を目指す学生向けに、使い分けやすい就活サービスを整理しました。</p>
+    </div>
+  </header>
+
+  <section class="quick-stats" aria-label="概要">
+    <div class="stat"><strong id="countAll">0</strong><span>掲載サービス</span></div>
+    <div class="stat"><strong>3</strong><span>目的別カテゴリ</span></div>
+    <div class="stat"><strong>2026.07</strong><span>最終整理</span></div>
+  </section>
+
+  <main>
+    <div id="sections"></div>
+
+    <section class="note">
+      掲載内容は公式サイトの現在の情報を確認しながら整理しています。募集年度、応募条件、選考時期、利用できる機能は頻繁に変わるため、エントリー前には必ず各サービスの公式ページで最新情報を確認してください。
+    </section>
+  </main>
+
+  <footer>
+    外資系新卒ナビ
+  </footer>
+
+  <script src="data/platforms.js"></script>
+  <script>
+    const sectionData = [
+      {
+        title: "帰国子女・海外大・バイリンガル新卒向け",
+        intro: "海外経験や日英バイリンガル性を活かしたい学生は、まずこのゾーンを押さえると動きやすいです。",
+        names: ["CFN / CareerForum.Net", "CareerCross 新卒", "マイナビ国際派就職"],
+        notes: {
+          "CFN / CareerForum.Net": {
+            type: "日英バイリンガル向け就職サービス",
+            desc: "Career Forum、オンライン求人、インターン、CFN Agent などを通じて、日英バイリンガル人材向けの就職機会を探せます。",
+            point: "海外大生、帰国子女、日英バイリンガルの就活では最優先で確認したい入口です。",
+            tags: ["帰国子女", "海外大", "日英バイリンガル"]
+          },
+          "CareerCross 新卒": {
+            type: "バイリンガル新卒向け求人入口",
+            desc: "CareerCross の新卒向け求人入口です。英語力や国際経験を活かせる外資系・グローバル企業の機会を探せます。",
+            point: "日英バイリンガル、外資志望、グローバル職種を見たい新卒の補助入口として使いやすいです。",
+            tags: ["新卒", "バイリンガル", "外資"]
+          },
+          "マイナビ国際派就職": {
+            type: "海外留学生・バイリンガル向け就職支援",
+            desc: "海外留学生やバイリンガル人材向けの就職情報を集められる Mynavi 系サービスです。",
+            point: "外資だけでなく、グローバル人材を採りたい日系企業も見たいときに便利です。",
+            tags: ["海外留学生", "バイリンガル", "新卒"]
+          }
+        }
+      },
+      {
+        title: "外資・コンサル・金融・難関企業向け",
+        intro: "外資系企業、戦略コンサル、投資銀行、総合商社、日系トップ企業を狙うなら、選考情報と対策コンテンツを厚めに集めます。",
+        names: ["外資就活ドットコム", "ONE CAREER", "Goodfind", "unistyle"],
+        notes: {
+          "外資就活ドットコム": {
+            type: "外資・トップ企業志望者向け就活サイト",
+            desc: "外資系企業や日系トップ企業を目指す学生向けに、募集情報、ES・体験記、スカウト、選考対策コンテンツを提供しています。",
+            point: "外資コンサル、外資金融、難関企業の本選考やインターン情報を追う主戦場です。",
+            tags: ["外資", "コンサル", "金融"]
+          },
+          "ONE CAREER": {
+            type: "新卒就活・選考情報プラットフォーム",
+            desc: "企業検索、本選考、インターン、説明会、ES、体験談、口コミをまとめて確認できます。",
+            point: "外資と日系大手を並行して見るときの企業研究と選考対策に向いています。",
+            tags: ["ES", "体験談", "企業研究"]
+          },
+          "Goodfind": {
+            type: "高ポテンシャル学生向けキャリアサービス",
+            desc: "ハイレベルなセミナー、就活面談、厳選企業との出会いを提供する新卒キャリアサービスです。",
+            point: "コンサル、成長企業、スタートアップ、少数精鋭の特別選考を探したい学生に合います。",
+            tags: ["セミナー", "面談", "成長企業"]
+          },
+          "unistyle": {
+            type: "ES・選考レポートデータベース",
+            desc: "内定者や選考通過者の ES、選考レポート、企業研究、就活ノウハウを確認できます。",
+            point: "難関企業の ES と面接準備を詰めるための資料庫として使いやすいです。",
+            tags: ["ES", "選考レポート", "対策"]
+          }
+        }
+      },
+      {
+        title: "一般的な新卒就活の補助",
+        intro: "外資志望でも、日本の新卒就活全体のスケジュール、説明会、一般的なエントリー経路は押さえておくと安心です。",
+        names: ["リクナビ新卒", "マイナビ新卒", "OfferBox"],
+        notes: {
+          "リクナビ新卒": {
+            type: "新卒就活の総合入口",
+            desc: "インターン、企業研究、説明会、新卒採用、就活準備コンテンツを幅広く確認できます。",
+            point: "日本の標準的な新卒就活の流れを把握するための基礎入口です。",
+            tags: ["総合", "説明会", "企業研究"]
+          },
+          "マイナビ新卒": {
+            type: "新卒就活の総合入口",
+            desc: "新卒採用、インターン、合同説明会、企業研究などを広く探せる学生向けサービスです。",
+            point: "日系企業や幅広い業界も並行して見るときの補助線になります。",
+            tags: ["総合", "合同説明会", "インターン"]
+          },
+          "OfferBox": {
+            type: "逆求人・オファー型就活サービス",
+            desc: "プロフィールを登録し、企業からのオファーを受け取る逆求人型の新卒サービスです。",
+            point: "自分から応募するだけでなく、企業に見つけてもらう導線を作れます。",
+            tags: ["逆求人", "スカウト", "補助"]
+          }
+        }
+      }
+    ];
+
+    const platforms = window.platforms;
+    const platformByName = new Map(platforms.map(item => [item.name, item]));
+    const sectionRoot = document.querySelector("#sections");
+    document.querySelector("#countAll").textContent = sectionData.reduce((sum, section) => sum + section.names.length, 0);
+
+    function favicon(domain) {
+      return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=64`;
+    }
+
+    function chipClass(tag) {
+      if (/外資|コンサル|海外|バイリンガル/.test(tag)) return "blue";
+      if (/帰国|留学生|総合|企業研究/.test(tag)) return "teal";
+      if (/ES|選考|金融|説明会/.test(tag)) return "gold";
+      if (/逆求人|スカウト/.test(tag)) return "red";
+      return "";
+    }
+
+    function cardHtml(name, notes) {
+      const base = platformByName.get(name);
+      if (!base) return "";
+      const item = notes[name];
+      return `
+        <article class="card">
+          <div class="topline">
+            <img class="logo" src="${favicon(base.domain)}" alt="${base.name} logo" loading="lazy">
+            <div class="name">
+              <strong>${base.name}</strong>
+              <span>${item.type}</span>
+            </div>
+          </div>
+          <p class="desc">${item.desc}</p>
+          <div class="point"><b>使いどころ</b>${item.point}</div>
+          <div class="chips">${item.tags.map(tag => `<span class="chip ${chipClass(tag)}">${tag}</span>`).join("")}</div>
+          <a class="visit" href="${base.url}" target="_blank" rel="noreferrer">公式サイトを見る</a>
+        </article>
+      `;
+    }
+
+    sectionRoot.innerHTML = sectionData.map(section => `
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2>${section.title}</h2>
+            <p>${section.intro}</p>
+          </div>
+        </div>
+        <div class="grid">
+          ${section.names.map(name => cardHtml(name, section.notes)).join("")}
+        </div>
+      </section>
+    `).join("");
+  </script>
+</body>
+</html>
