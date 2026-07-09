@@ -2,7 +2,7 @@
 
 > Sorry, an English version is planned but not ready yet. Please use your browser's built-in translation feature to read the site in English for now. (｡•́︿•̀｡)
 
-## 🌐 Live Site / 线上页面 / 公開ページ
+## 🌐 Online Site / 线上页面 / 公開ページ
 
 [https://rououkan.github.io/japan-foreigner-job-nav/](https://rououkan.github.io/japan-foreigner-job-nav/)
 
