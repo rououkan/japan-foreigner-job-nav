@@ -2,6 +2,8 @@
 
 > Sorry, an English version is planned but not ready yet. Please use your browser's built-in translation feature to read the site in English for now. (｡•́︿•̀｡)
 
+> **Online Site / 线上页面 / 公開ページ:** [https://rououkan.github.io/japan-foreigner-job-nav/](https://rououkan.github.io/japan-foreigner-job-nav/)
+
 Please feel free to suggest new job websites, career platforms, official resources, or corrections via [Issues](../../issues).<br>
 欢迎大家通过 [Issues](../../issues) 踊跃投稿新的招聘网站、求职平台、官方入口或需要修正的信息。<br>
 新しい求人サイト、就活サービス、公的窓口、修正すべき情報があれば、ぜひ [Issues](../../issues) から投稿してください。
