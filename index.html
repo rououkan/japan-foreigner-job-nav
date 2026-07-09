@@ -1,0 +1,1510 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>日本外国人招聘平台导航</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #16202a;
+      --muted: #5d6b78;
+      --line: #d9e1e8;
+      --paper: #f7f9fb;
+      --white: #ffffff;
+      --teal: #0f766e;
+      --red: #d64545;
+      --gold: #b07d12;
+      --blue: #2563eb;
+      --green: #247a3d;
+      --violet: #6d3fc5;
+      --shadow: 0 18px 50px rgba(22, 32, 42, 0.12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      min-height: 440px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 16% 20%, rgba(94, 234, 212, 0.32), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(125, 211, 252, 0.28), transparent 30%),
+        linear-gradient(135deg, #0b3b8f 0%, #0f6fc6 42%, #12a8c7 100%);
+      color: white;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.18));
+    }
+
+    .hero::after {
+      background:
+        linear-gradient(118deg, transparent 0 56%, rgba(255, 255, 255, 0.14) 56% 57%, transparent 57%),
+        linear-gradient(142deg, transparent 0 63%, rgba(255, 255, 255, 0.1) 63% 64%, transparent 64%),
+        radial-gradient(circle at 70% 72%, rgba(255, 255, 255, 0.18), transparent 22%);
+      opacity: 0.9;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 64px 0 42px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #d9fbff;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 18px;
+      line-height: 1.72;
+    }
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      width: min(1180px, calc(100% - 36px));
+      margin: -34px auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat {
+      min-height: 92px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 36px));
+      margin: 38px auto 80px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 4;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 0;
+      background: rgba(247, 249, 251, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .search {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      align-items: center;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .search svg {
+      width: 18px;
+      height: 18px;
+      margin-left: 16px;
+      color: var(--muted);
+    }
+
+    input {
+      width: 100%;
+      height: 46px;
+      border: 0;
+      outline: 0;
+      color: var(--ink);
+      background: transparent;
+      font: inherit;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .tab {
+      min-height: 38px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--muted);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tab[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 28px 0 16px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .hint {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 258px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(22, 32, 42, 0.34);
+      box-shadow: 0 14px 30px rgba(22, 32, 42, 0.1);
+    }
+
+    .topline {
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: #f2f5f7;
+      object-fit: contain;
+      padding: 7px;
+    }
+
+    .name {
+      min-width: 0;
+    }
+
+    .name strong {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 18px;
+    }
+
+    .name span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status {
+      align-self: start;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status.active { color: #0c5f38; background: #dff5e8; }
+    .status.note { color: #714f00; background: #fff0bd; }
+    .status.closed { color: #8a2727; background: #ffe1df; }
+
+    .desc {
+      margin: 16px 0 14px;
+      color: #334350;
+      font-size: 14px;
+      line-height: 1.62;
+      min-height: 68px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .row b { color: var(--ink); font-weight: 800; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 14px 0 16px;
+    }
+
+    .chip {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: #eef3f7;
+      color: #354451;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .chip.teal { background: #d9f1ee; color: var(--teal); }
+    .chip.blue { background: #e1eaff; color: var(--blue); }
+    .chip.gold { background: #fff0c9; color: var(--gold); }
+    .chip.green { background: #e0f3e6; color: var(--green); }
+    .chip.violet { background: #ece5ff; color: var(--violet); }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 42px 42px;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .visit,
+    .copy,
+    .favorite {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .copy,
+    .favorite {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .favorite[aria-pressed="true"] {
+      border-color: #f1b924;
+      background: #fff6cf;
+      color: #8a5e00;
+    }
+
+    .copy svg,
+    .favorite svg,
+    .visit svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .callout {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .panel p,
+    .panel li {
+      color: #334350;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .source-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .source-list a {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: #fbfcfd;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    footer {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto 42px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .empty {
+      display: none;
+      padding: 28px;
+      border: 1px dashed #b5c1cb;
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 940px) {
+      .quick-stats,
+      .grid,
+      .callout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+        position: static;
+      }
+
+      .tabs { justify-content: flex-start; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 500px; }
+      .hero-inner { padding-bottom: 58px; }
+      .lead { font-size: 16px; }
+      .quick-stats,
+      .grid,
+      .callout {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .hint { margin-top: 8px; }
+      .card { min-height: auto; }
+      .tab { flex: 1 1 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Japan Work Links · 2026</div>
+      <h1>日本外国人招聘平台导航</h1>
+      <p class="lead">收录日本市场常见、对外国求职者友好的招聘平台、双语人才网站、IT 英语岗位站点、猎头渠道和官方入口。按求职场景筛选，少绕路，多投对地方。</p>
+    </div>
+  </header>
+
+  <section class="quick-stats" aria-label="平台概览">
+    <div class="stat"><strong id="countAll">0</strong><span>收录平台与渠道</span></div>
+    <div class="stat"><strong>10</strong><span>求职场景分类</span></div>
+    <div class="stat"><strong>多语言</strong><span>英语、日语、中文、越南语等</span></div>
+    <div class="stat"><strong>2026.07</strong><span>已标记停服平台</span></div>
+  </section>
+
+  <main>
+    <div class="toolbar" aria-label="搜索和筛选">
+      <label class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+        <input id="search" type="search" placeholder="搜索平台、岗位类型、语言、签证关键词">
+      </label>
+      <div class="tabs" id="tabs"></div>
+    </div>
+
+    <div class="section-head">
+      <div>
+        <h2>平台清单</h2>
+        <p class="hint" id="resultHint">显示全部平台</p>
+      </div>
+      <p class="hint">点击卡片按钮跳转官网；复制按钮可复制链接。</p>
+    </div>
+
+    <section class="grid" id="cards" aria-live="polite"></section>
+    <div class="empty" id="empty">没有找到匹配的平台。换个关键词试试，比如 “IT”、“兼职”、“英语”、“签证”。</div>
+
+    <section class="callout">
+      <div class="panel">
+        <h3>怎么选更快</h3>
+        <ul>
+          <li>日语还不强、找服务业或兼职：先看 Guidable Jobs、WORK JAPAN、YOLO JAPAN、NINJA。</li>
+          <li>中文对应或华人公司岗位：iJob、小春网可以作为补充入口，但投递前要核验公司主体、在留资格和劳动条件。</li>
+          <li>日语可业务沟通、想进入本土公司：看 doda、リクナビNEXT、マイナビ転職、OpenWork、Recruit Agent、doda Agent 等。</li>
+          <li>英语岗位和双语白领：优先 Daijob、CareerCross、GaijinPot Jobs、Jobs in Japan。</li>
+          <li>软件工程师：Japan Dev 和 TokyoDev 更聚焦英语友好、海外申请、远程筛选。</li>
+          <li>中高端外资、管理岗：en world、Robert Walters、Michael Page、Hays、JAC、RGF 这类猎头更合适。</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>资料备注</h3>
+        <p>本页优先收录官网仍可访问、面向外国人或双语人才特征明确的平台。中文圈和论坛类信息源更适合作为补充渠道，投递前请确认公司法人、职业介绍/派遣许可、劳动条件通知书、签证支持范围和是否收取求职者费用。WeXpats Jobs 官网公告显示其招聘服务已于 2026-04-15 结束，因此保留在“已停服/历史常见”中，方便识别旧资料。</p>
+        <div class="source-list">
+          <a href="https://jobsinjapan.com/" target="_blank" rel="noreferrer">Jobs in Japan</a>
+          <a href="https://www.daijob.com/en/" target="_blank" rel="noreferrer">Daijob</a>
+          <a href="https://www.careercross.com/en/" target="_blank" rel="noreferrer">CareerCross</a>
+          <a href="https://careerforum.net/en/" target="_blank" rel="noreferrer">CFN</a>
+          <a href="https://job.connectiu.com/" target="_blank" rel="noreferrer">Connect Job</a>
+          <a href="https://nipponshigoto.com/" target="_blank" rel="noreferrer">NIPPON仕事</a>
+          <a href="https://www.ijob.jp/" target="_blank" rel="noreferrer">iJob</a>
+          <a href="https://www.incnjp.com/forum-620-1.html" target="_blank" rel="noreferrer">小春工作</a>
+          <a href="https://doda.jp/" target="_blank" rel="noreferrer">doda</a>
+          <a href="https://next.rikunabi.com/" target="_blank" rel="noreferrer">リクナビNEXT</a>
+          <a href="https://tenshoku.mynavi.jp/" target="_blank" rel="noreferrer">マイナビ転職</a>
+          <a href="https://www.openwork.jp/" target="_blank" rel="noreferrer">OpenWork</a>
+          <a href="https://japan-dev.com/" target="_blank" rel="noreferrer">Japan Dev</a>
+          <a href="https://www.tokyodev.com/" target="_blank" rel="noreferrer">TokyoDev</a>
+          <a href="https://we-xpats.com/en/job/" target="_blank" rel="noreferrer">WeXpats Notice</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    最后整理：2026-07-09。招聘信息、签证支持、语言要求会频繁变化，投递前请以各平台官网岗位页为准。
+  </footer>
+
+  <script>
+    const platforms = [
+      {
+        name: "GaijinPot Jobs",
+        domain: "jobs.gaijinpot.com",
+        url: "https://jobs.gaijinpot.com/",
+        group: "综合外籍",
+        type: "招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "老牌外籍求职者入口，常见英语教学、酒店、办公室、IT、创意岗位，也适合刚开始了解日本就业市场的人。",
+        best: "英语岗位、教学、入门求职",
+        langs: "English / Japanese",
+        tags: ["英语", "教学", "全职", "兼职"]
+      },
+      {
+        name: "Jobs in Japan",
+        domain: "jobsinjapan.com",
+        url: "https://jobsinjapan.com/",
+        group: "综合外籍",
+        type: "招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "面向外国人的综合职位网站，覆盖教学、IT、酒店、餐饮、制造、办公室等，提供 No Japanese、Overseas OK 等筛选。",
+        best: "多行业、英文检索、海外申请",
+        langs: "English / Japanese",
+        tags: ["No Japanese", "Overseas OK", "教学", "IT"]
+      },
+      {
+        name: "Daijob.com",
+        domain: "daijob.com",
+        url: "https://www.daijob.com/en/",
+        group: "双语白领",
+        type: "双语招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "面向双语和多语言专业人才，官网提供 Visa Support、Overseas Applications、Company Language is English 等快速筛选。",
+        best: "双语白领、外资、日英岗位",
+        langs: "English / Japanese",
+        tags: ["双语", "签证支持", "Scout", "外资"]
+      },
+      {
+        name: "CareerCross",
+        domain: "careercross.com",
+        url: "https://www.careercross.com/en/",
+        group: "双语白领",
+        type: "双语招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "日本常见的英文/双语职业平台，适合销售、市场、IT、金融、人事、法务等专业岗位。",
+        best: "英语使用岗位、职业转职",
+        langs: "English / Japanese",
+        tags: ["双语", "外资", "全职", "专业岗"]
+      },
+      {
+        name: "CFN / CareerForum.Net",
+        domain: "careerforum.net",
+        url: "https://careerforum.net/en/",
+        group: "双语白领",
+        type: "日英双语求职与招聘会",
+        status: "active",
+        statusText: "可用",
+        desc: "面向 Japanese-English bilinguals 的职业服务入口，包含线上岗位、实习、CFN Agent 和 Career Forum 招聘会。",
+        best: "日英双语、留学生、Career Forum",
+        langs: "English / Japanese",
+        tags: ["双语", "留学生", "招聘会", "新卒"]
+      },
+      {
+        name: "Connect Job",
+        domain: "job.connectiu.com",
+        url: "https://job.connectiu.com/",
+        group: "综合外籍",
+        type: "全球人才赴日求职平台",
+        status: "active",
+        statusText: "可用",
+        desc: "面向 Skilled Global Talent，覆盖海外学生、在日留学生、中途和高端岗位，并提供咨询、选考活动和赴日前支持。",
+        best: "海外人才、在日留学生、赴日就职",
+        langs: "English / Japanese",
+        tags: ["海外申请", "留学生", "中途", "赴日支持"]
+      },
+      {
+        name: "マイナビ国際派就職",
+        domain: "global.mynavi.jp",
+        url: "https://global.mynavi.jp/",
+        group: "双语白领",
+        type: "留学生与双语求职平台",
+        status: "active",
+        statusText: "可用",
+        desc: "Mynavi 面向海外留学生和双语人才的就职信息网站，适合新卒、实习、企业活动和国际派求职信息收集。",
+        best: "海外留学生、双语新卒、日企活动",
+        langs: "Japanese / English",
+        tags: ["留学生", "双语", "新卒", "活动"]
+      },
+      {
+        name: "YOLO JAPAN",
+        domain: "yolo-japan.com",
+        url: "https://www.yolo-japan.com/en/recruit/job?order=new",
+        group: "服务兼职",
+        type: "外国人生活与求职平台",
+        status: "active",
+        statusText: "可用",
+        desc: "面向在日外国人的生活和工作平台，岗位多见兼职、短期、调查、服务业，也有简历和 Scout 功能。",
+        best: "兼职、短期、在日外国人",
+        langs: "English / Chinese / Korean / Vietnamese / Portuguese / Japanese",
+        tags: ["兼职", "短期", "多语言", "在日"]
+      },
+      {
+        name: "Guidable Jobs",
+        domain: "jobs.guidable.co",
+        url: "https://jobs.guidable.co/en",
+        group: "服务兼职",
+        type: "外国人招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "按都道府县、工种、雇佣形态和签证类型筛选，覆盖餐饮、酒店、清扫、制造、物流、护理、IT 等。",
+        best: "按签证筛选、服务业、兼职",
+        langs: "English / Easy Japanese / Chinese / Vietnamese / Tagalog / more",
+        tags: ["签证筛选", "兼职", "多语言", "服务业"]
+      },
+      {
+        name: "WORK JAPAN",
+        domain: "workjapan.jp",
+        url: "https://www.workjapan.jp/",
+        group: "服务兼职",
+        type: "外国人招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "多语言外国人求职平台，常见餐饮、工厂、酒店、清洁、仓库、特定技能相关岗位，强调 Foreigner friendly jobs。",
+        best: "餐饮、工厂、酒店、特定技能",
+        langs: "English / Japanese / more",
+        tags: ["特定技能", "No Nihongo OK", "宿舍", "服务业"]
+      },
+      {
+        name: "NINJA",
+        domain: "nextinjapan.com",
+        url: "https://nextinjapan.com/",
+        group: "综合外籍",
+        type: "外国人转职平台",
+        status: "active",
+        statusText: "可用",
+        desc: "日本で働く外国人のための転職・就職情報サイト。可按语言、职种、地区、日本语等级、雇佣形态等查找。",
+        best: "日语中级以上、办公室与服务岗位",
+        langs: "Japanese",
+        tags: ["外国人活躍中", "日语等级", "新卒OK", "转职"]
+      },
+      {
+        name: "NIPPON仕事.com",
+        domain: "nipponshigoto.com",
+        url: "https://nipponshigoto.com/",
+        group: "综合外籍",
+        type: "外国人专门招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "Good Man Service 运营的外国人向け求人サイト。官网公开派遣、有料职业介绍、登录支援机构许可编号，可按中国语、英语、签证支持、日本语等级等筛选。",
+        best: "中文对应、派遣/正社员、签证支持",
+        langs: "Japanese / English / Chinese language filters",
+        tags: ["中文对应", "签证支持", "派遣", "正社员"]
+      },
+      {
+        name: "iJob.jp",
+        domain: "ijob.jp",
+        url: "https://www.ijob.jp/index.php?ctl=Index&act=home",
+        group: "中华圈",
+        type: "中文招聘平台",
+        status: "note",
+        statusText: "中文圈",
+        desc: "中文界面的在日招聘平台，导航含正社员、小时工、IT 案件、赴日工作和企业版，岗位常标注中国语对应、日语要求、无经验可等。",
+        best: "华人公司、中文对应、IT/餐饮/销售",
+        langs: "Chinese / Japanese",
+        tags: ["中文", "华人公司", "IT", "小时工"]
+      },
+      {
+        name: "小春网求职招聘",
+        domain: "incnjp.com",
+        url: "https://www.incnjp.com/forum-620-1.html",
+        group: "中华圈",
+        type: "华人社区招聘板",
+        status: "note",
+        statusText: "社区",
+        desc: "在日华人社区小春网的求职招聘版，主题量大，覆盖招聘职位、正社员简历、小时工简历等。版面有免责声明和诈骗招工警示，适合作为补充信息源。",
+        best: "本地华人岗位、兼职、论坛信息",
+        langs: "Chinese / Japanese mixed",
+        tags: ["中文", "社区", "兼职", "需核验"]
+      },
+      {
+        name: "Japan Dev",
+        domain: "japan-dev.com",
+        url: "https://japan-dev.com/",
+        group: "IT",
+        type: "技术招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "精选日本英语友好技术岗位，清楚标注 No Japanese Required、Apply from Overseas、Remote Jobs 等条件。",
+        best: "软件工程师、产品、设计、海外申请",
+        langs: "English / Japanese",
+        tags: ["IT", "No Japanese", "海外申请", "远程"]
+      },
+      {
+        name: "TokyoDev",
+        domain: "tokyodev.com",
+        url: "https://www.tokyodev.com/",
+        group: "IT",
+        type: "技术招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "聚焦日本英语软件开发岗位，提供 Apply from Abroad、No Japanese Required、Fully Remote 等实用筛选。",
+        best: "软件开发、英文技术团队",
+        langs: "English / Japanese",
+        tags: ["IT", "No Japanese", "海外申请", "远程"]
+      },
+      {
+        name: "LinkedIn Jobs Japan",
+        domain: "linkedin.com",
+        url: "https://www.linkedin.com/jobs/search/?location=Japan",
+        group: "通用入口",
+        type: "全球职业平台",
+        status: "active",
+        statusText: "可用",
+        desc: "外资、科技、咨询和跨国岗位常用入口，也适合建立英文履历和连接日本招聘经理、猎头。",
+        best: "外资、跨国公司、猎头触达",
+        langs: "English / Japanese / more",
+        tags: ["外资", "远程", "英文履历", "通用"]
+      },
+      {
+        name: "Indeed Japan",
+        domain: "jp.indeed.com",
+        url: "https://jp.indeed.com/",
+        group: "通用入口",
+        type: "综合招聘搜索",
+        status: "active",
+        statusText: "可用",
+        desc: "日本覆盖面很广的职位搜索入口。可用英文、中文、外国人歓迎、visa sponsorship 等关键词组合检索。",
+        best: "全行业海量检索",
+        langs: "Japanese / English",
+        tags: ["通用", "关键词检索", "全行业"]
+      },
+      {
+        name: "Wantedly",
+        domain: "wantedly.com",
+        url: "https://www.wantedly.com/",
+        group: "本土平台",
+        type: "公司文化型招聘",
+        status: "active",
+        statusText: "可用",
+        desc: "日本创业公司和互联网公司常用，偏重公司文化、项目和团队介绍；适合日语较好、想看初创机会的人。",
+        best: "创业公司、互联网、实习",
+        langs: "Japanese / English",
+        tags: ["创业公司", "IT", "实习", "日语"]
+      },
+      {
+        name: "Green",
+        domain: "green-japan.com",
+        url: "https://www.green-japan.com/",
+        group: "本土平台",
+        type: "日本 IT 招聘平台",
+        status: "active",
+        statusText: "可用",
+        desc: "日本 IT/Web 行业常见招聘平台，主要为日语界面，适合已具备日语沟通能力的工程师、设计师、产品岗位。",
+        best: "日本 IT/Web 转职",
+        langs: "Japanese",
+        tags: ["IT", "Web", "日语", "转职"]
+      },
+      {
+        name: "BizReach",
+        domain: "bizreach.jp",
+        url: "https://www.bizreach.jp/",
+        group: "本土平台",
+        type: "高端转职与 Scout",
+        status: "active",
+        statusText: "可用",
+        desc: "日本高端转职和 Scout 平台，外籍求职者若有较强日语和专业履历，也可用于接触猎头与管理岗。",
+        best: "高年收、管理岗、猎头 Scout",
+        langs: "Japanese",
+        tags: ["高端", "Scout", "日语", "管理岗"]
+      },
+      {
+        name: "doda",
+        domain: "doda.jp",
+        url: "https://doda.jp/",
+        group: "本土平台",
+        type: "综合转职网站 / Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "日本大型综合转职服务，覆盖公开求人、エージェントサービス、スカウト、イベント等；适合日语可业务沟通的中途转职。",
+        best: "综合转职、Agent、Scout、公开求人",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "Scout", "综合"]
+      },
+      {
+        name: "マイナビ転職",
+        domain: "tenshoku.mynavi.jp",
+        url: "https://tenshoku.mynavi.jp/",
+        group: "本土平台",
+        type: "综合转职网站",
+        status: "active",
+        statusText: "可用",
+        desc: "Mynavi 的综合中途招聘平台，覆盖全国职位、第二新卒、地方转职、企业特集等；适合广泛收集日企公开岗位。",
+        best: "综合职位、第二新卒、地方转职",
+        langs: "Japanese",
+        tags: ["本土", "综合", "第二新卒", "地方"]
+      },
+      {
+        name: "リクナビNEXT",
+        domain: "next.rikunabi.com",
+        url: "https://next.rikunabi.com/",
+        group: "本土平台",
+        type: "综合转职网站",
+        status: "active",
+        statusText: "可用",
+        desc: "Recruit 旗下中途转职网站，适合搜索日本本土公开求人、接收 Offer、配合 Recruit 系列履历和 Agent 使用。",
+        best: "综合转职、Recruit 系列、公开求人",
+        langs: "Japanese",
+        tags: ["本土", "综合", "Offer", "Recruit"]
+      },
+      {
+        name: "OpenWork",
+        domain: "openwork.jp",
+        url: "https://www.openwork.jp/",
+        group: "本土平台",
+        type: "公司评价与求人平台",
+        status: "active",
+        statusText: "可用",
+        desc: "以员工口コミ、年收、组织文化评价见长，也提供求人和スカウト；适合投递前看公司真实评价和面试口碑。",
+        best: "公司口コミ、年收参考、投递前调查",
+        langs: "Japanese",
+        tags: ["本土", "口コミ", "Scout", "企业研究"]
+      },
+      {
+        name: "エン転職",
+        domain: "employment.en-japan.com",
+        url: "https://employment.en-japan.com/",
+        group: "本土平台",
+        type: "综合转职网站",
+        status: "active",
+        statusText: "可用",
+        desc: "en Japan 旗下综合转职网站，覆盖公开职位、招聘特集、女性转职、Agent 服务和转职知识内容。",
+        best: "综合职位、企业采访、转职知识",
+        langs: "Japanese",
+        tags: ["本土", "综合", "女性转职", "Agent"]
+      },
+      {
+        name: "type",
+        domain: "type.jp",
+        url: "https://type.jp/",
+        group: "本土平台",
+        type: "综合/IT 转职网站",
+        status: "active",
+        statusText: "可用",
+        desc: "日本本土转职网站，IT/Web、営業、企画、管理等岗位较常见，也有配套的 type 転職エージェント。",
+        best: "IT/Web、営業、企画、管理岗",
+        langs: "Japanese",
+        tags: ["本土", "IT", "综合", "Agent"]
+      },
+      {
+        name: "Re就活",
+        domain: "re-katsu.jp",
+        url: "https://re-katsu.jp/career/",
+        group: "本土平台",
+        type: "20代・第二新卒转职",
+        status: "active",
+        statusText: "可用",
+        desc: "面向 20 代、第二新卒、既卒、未经验转职者的平台；适合日本职场经验较浅、想从入门岗开始的人。",
+        best: "20代、第二新卒、未经验可",
+        langs: "Japanese",
+        tags: ["本土", "第二新卒", "20代", "未经验"]
+      },
+      {
+        name: "AMBI",
+        domain: "en-ambi.com",
+        url: "https://en-ambi.com/",
+        group: "本土平台",
+        type: "若手高潜力 Scout",
+        status: "active",
+        statusText: "可用",
+        desc: "en Japan 旗下年轻高潜力人才向けスカウト转职服务，偏高年收、成长企业、专业岗位。",
+        best: "若手ハイキャリア、Scout、成长企业",
+        langs: "Japanese",
+        tags: ["本土", "Scout", "高年收", "若手"]
+      },
+      {
+        name: "ミドルの転職",
+        domain: "mid-tenshoku.com",
+        url: "https://mid-tenshoku.com/",
+        group: "本土平台",
+        type: "30代・40代 高端转职",
+        status: "active",
+        statusText: "可用",
+        desc: "en Japan 旗下中坚/管理层转职服务，适合 30-40 代、管理岗、专业岗和高年收岗位。",
+        best: "30代・40代、管理岗、高年收",
+        langs: "Japanese",
+        tags: ["本土", "高端", "管理岗", "Scout"]
+      },
+      {
+        name: "リクルートエージェント",
+        domain: "r-agent.com",
+        url: "https://www.r-agent.com/",
+        group: "本土平台",
+        type: "综合转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "Recruit 旗下大型转职 Agent，公开求人和非公开求人规模大；适合想让顾问代找职位、协调面试和年收交涉的人。",
+        best: "综合 Agent、非公开求人、面试协调",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "Recruit", "非公开求人"]
+      },
+      {
+        name: "マイナビAGENT",
+        domain: "mynavi-agent.jp",
+        url: "https://mynavi-agent.jp/",
+        group: "本土平台",
+        type: "综合转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "Mynavi 系综合转职 Agent，覆盖 IT、メーカー、営業、管理部門、第二新卒等，适合配合マイナビ転職一起使用。",
+        best: "综合 Agent、第二新卒、管理部門",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "Mynavi", "综合"]
+      },
+      {
+        name: "パソナキャリア",
+        domain: "pasonacareer.jp",
+        url: "https://www.pasonacareer.jp/",
+        group: "本土平台",
+        type: "综合/ハイクラス Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "Pasona 旗下转职 Agent，常见管理部門、ハイクラス、女性管理职、地方和日系大企业岗位。",
+        best: "管理部門、ハイクラス、女性管理职",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "高端", "管理岗"]
+      },
+      {
+        name: "ワークポート",
+        domain: "workport.co.jp",
+        url: "https://www.workport.co.jp/",
+        group: "本土平台",
+        type: "综合/IT 转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "日本本土转职 Agent，早期以 IT/Web/Game 见长，现覆盖综合转职；适合 IT 和未经验转职咨询。",
+        best: "IT/Web、Game、未经验转职",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "IT", "未经验"]
+      },
+      {
+        name: "リクルートダイレクトスカウト",
+        domain: "directscout.recruit.co.jp",
+        url: "https://directscout.recruit.co.jp/",
+        group: "本土平台",
+        type: "Scout / 高端转职",
+        status: "active",
+        statusText: "可用",
+        desc: "Recruit 系スカウト服务，注册履历后可收到企业和 Agent 的 Scout，偏中高端、管理岗和专业岗。",
+        best: "Scout、高年收、管理岗",
+        langs: "Japanese",
+        tags: ["本土", "Scout", "Recruit", "高端"]
+      },
+      {
+        name: "doda X",
+        domain: "doda-x.jp",
+        url: "https://doda-x.jp/",
+        group: "本土平台",
+        type: "ハイクラス転職サービス",
+        status: "active",
+        statusText: "可用",
+        desc: "doda 系高端转职服务，适合管理职、专业职、高年收岗位，通过スカウト和求人搜索推进转职。",
+        best: "ハイクラス、管理岗、Scout",
+        langs: "Japanese",
+        tags: ["本土", "Scout", "高端", "管理岗"]
+      },
+      {
+        name: "LHH転職エージェント",
+        domain: "jp.lhh.com",
+        url: "https://jp.lhh.com/",
+        group: "本土平台",
+        type: "综合/专业转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "Adecco Group 旗下 LHH 的日本转职 Agent，覆盖 IT、管理部門、営業、专业职和外资/日系企业岗位。",
+        best: "综合 Agent、外资/日系、专业岗",
+        langs: "Japanese / English support may vary",
+        tags: ["本土", "Agent", "外资", "专业岗"]
+      },
+      {
+        name: "type転職エージェント",
+        domain: "tenshoku-agent.type.jp",
+        url: "https://tenshoku-agent.type.jp/",
+        group: "本土平台",
+        type: "综合/IT 转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "type 系转职 Agent，偏首都圈、IT/Web、営業、企画、管理部門等，适合想要顾问支持的人。",
+        best: "首都圈、IT/Web、営業、管理部門",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "IT", "首都圈"]
+      },
+      {
+        name: "Geekly",
+        domain: "geekly.co.jp",
+        url: "https://www.geekly.co.jp/",
+        group: "本土平台",
+        type: "IT/Web/Game 转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "IT、Web、Game 行业专门转职 Agent，适合工程师、クリエイター、PM、IT営業等日语岗位。",
+        best: "IT/Web/Game、工程师、クリエイター",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "IT", "Game"]
+      },
+      {
+        name: "レバテックキャリア",
+        domain: "levtech.jp",
+        url: "https://career.levtech.jp/",
+        group: "本土平台",
+        type: "ITエンジニア转职 Agent",
+        status: "active",
+        statusText: "可用",
+        desc: "IT/Web エンジニア和クリエイター专门转职 Agent，适合日语技术面试和日企技术岗位。",
+        best: "IT工程师、Web、技术面试支持",
+        langs: "Japanese",
+        tags: ["本土", "Agent", "IT", "Web"]
+      },
+      {
+        name: "Findy",
+        domain: "findy-code.io",
+        url: "https://findy-code.io/",
+        group: "本土平台",
+        type: "IT/Web エンジニア Scout",
+        status: "active",
+        statusText: "可用",
+        desc: "通过 GitHub 等信息可视化技能和年收预估的工程师转职服务，常见自社开发、SaaS、Startup 岗位。",
+        best: "工程师、GitHub、Scout、自社开发",
+        langs: "Japanese",
+        tags: ["本土", "IT", "Scout", "Startup"]
+      },
+      {
+        name: "Forkwell Jobs",
+        domain: "forkwell.com",
+        url: "https://forkwell.com/jobs",
+        group: "本土平台",
+        type: "ITエンジニア求人",
+        status: "active",
+        statusText: "可用",
+        desc: "面向 IT 工程师的求人和スカウト平台，常见 Web、SRE、后端、前端、数据相关岗位。",
+        best: "工程师、SRE、Web、自社开发",
+        langs: "Japanese",
+        tags: ["本土", "IT", "Scout", "Web"]
+      },
+      {
+        name: "paiza転職",
+        domain: "paiza.jp",
+        url: "https://paiza.jp/career",
+        group: "本土平台",
+        type: "ITエンジニア転職",
+        status: "active",
+        statusText: "可用",
+        desc: "以编程测试和技能等级为特色的 IT 工程师转职平台，适合用代码能力展示实力的开发者。",
+        best: "编程测试、工程师、技能等级",
+        langs: "Japanese",
+        tags: ["本土", "IT", "编程测试", "工程师"]
+      },
+      {
+        name: "女の転職type",
+        domain: "woman-type.jp",
+        url: "https://woman-type.jp/",
+        group: "本土平台",
+        type: "女性向け转职网站",
+        status: "active",
+        statusText: "可用",
+        desc: "面向女性求职者的本土转职网站，常见 office work、sales、engineer、creative、work-life balance 条件检索。",
+        best: "女性转职、办公室、销售、IT",
+        langs: "Japanese",
+        tags: ["本土", "女性转职", "综合", "日语"]
+      },
+      {
+        name: "求人ボックス",
+        domain: "xn--pckua2a7gp15o89zb.com",
+        url: "https://求人ボックス.com/",
+        group: "本土平台",
+        type: "求人搜索引擎",
+        status: "active",
+        statusText: "可用",
+        desc: "Kakaku.com 系求人搜索引擎，聚合正社员、アルバイト、派遣等大量岗位；适合用关键词横向搜索。",
+        best: "求人聚合、关键词搜索、全雇佣形态",
+        langs: "Japanese",
+        tags: ["本土", "聚合搜索", "兼职", "派遣"]
+      },
+      {
+        name: "スタンバイ",
+        domain: "stanby.jp",
+        url: "https://jp.stanby.com/",
+        group: "本土平台",
+        type: "求人搜索引擎",
+        status: "active",
+        statusText: "可用",
+        desc: "日本求人搜索服务，适合把职位名、地点、语言关键词组合起来做横向检索。",
+        best: "求人聚合、关键词搜索、地方岗位",
+        langs: "Japanese",
+        tags: ["本土", "聚合搜索", "地方", "综合"]
+      },
+      {
+        name: "Hello Work Internet Service",
+        domain: "hellowork.mhlw.go.jp",
+        url: "https://www.hellowork.mhlw.go.jp/",
+        group: "官方与公共",
+        type: "日本公共职业安定所",
+        status: "active",
+        statusText: "可用",
+        desc: "日本厚生劳动省相关公共求职入口。部分城市设有外国人雇用服务中心，适合需要公共就业咨询的人。",
+        best: "公共就业咨询、本地岗位",
+        langs: "Japanese / some local language support",
+        tags: ["官方", "公共", "咨询", "本地"]
+      },
+      {
+        name: "Tokyo Employment Service Center for Foreigners",
+        domain: "jsite.mhlw.go.jp",
+        url: "https://jsite.mhlw.go.jp/tokyo-foreigner/",
+        group: "官方与公共",
+        type: "外国人就业服务中心",
+        status: "active",
+        statusText: "可用",
+        desc: "东京面向外国人的公共就业服务窗口，适合在东京周边求职、需要确认在留资格和就业手续的人。",
+        best: "官方咨询、东京求职",
+        langs: "Japanese / English / Chinese support may vary",
+        tags: ["官方", "外国人", "在留资格", "东京"]
+      },
+      {
+        name: "en world Japan",
+        domain: "enworld.com",
+        url: "https://www.enworld.com/en/",
+        group: "双语猎头",
+        type: "外资与双语猎头",
+        status: "active",
+        statusText: "可用",
+        desc: "服务外资和日本跨国企业的中高端招聘，覆盖金融、IT、制造、医疗、消费品、管理岗位等。",
+        best: "外资、中高端、英语专业岗",
+        langs: "English / Japanese",
+        tags: ["猎头", "外资", "中高端", "英语"]
+      },
+      {
+        name: "Robert Walters Japan",
+        domain: "robertwalters.co.jp",
+        url: "https://www.robertwalters.co.jp/en/",
+        group: "双语猎头",
+        type: "专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "日本常见双语专业招聘顾问，覆盖会计金融、法务、销售、市场、医疗、技术、供应链等。",
+        best: "双语专业岗、外资转职",
+        langs: "English / Japanese",
+        tags: ["猎头", "双语", "外资", "专业岗"]
+      },
+      {
+        name: "Michael Page Japan",
+        domain: "michaelpage.co.jp",
+        url: "https://www.michaelpage.co.jp/en",
+        group: "双语猎头",
+        type: "专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "国际招聘公司日本站，适合外资、管理、金融、IT、医疗、销售市场、人事法务等专业岗位。",
+        best: "外资专业岗、英文简历",
+        langs: "English / Japanese",
+        tags: ["猎头", "外资", "管理岗", "专业岗"]
+      },
+      {
+        name: "Hays Japan",
+        domain: "hays.co.jp",
+        url: "https://www.hays.co.jp/en",
+        group: "双语猎头",
+        type: "专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "日本常见国际猎头渠道，覆盖 IT、财务、工程、生命科学、人事、销售市场等专业领域。",
+        best: "专业转职、合同与全职岗位",
+        langs: "English / Japanese",
+        tags: ["猎头", "专业岗", "外资", "转职"]
+      },
+      {
+        name: "JAC Recruitment Japan",
+        domain: "jac-recruitment.jp",
+        url: "https://www.jac-recruitment.jp/",
+        group: "双语猎头",
+        type: "中高端招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "日本中高端转职咨询公司，适合有专业经验、日语较强、目标管理岗或跨国业务岗位的求职者。",
+        best: "管理岗、跨国业务、日语专业岗",
+        langs: "Japanese / English",
+        tags: ["猎头", "中高端", "管理岗", "日语"]
+      },
+      {
+        name: "RGF Professional Recruitment Japan",
+        domain: "rgf-professional.jp",
+        url: "https://www.rgf-professional.jp/en",
+        group: "双语猎头",
+        type: "专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "Recruit 旗下专业招聘品牌，覆盖日本市场的外资、日资国际岗位和中高端专业职位。",
+        best: "外资、日资国际岗位、专业转职",
+        langs: "English / Japanese",
+        tags: ["猎头", "Recruit", "专业岗", "中高端"]
+      },
+      {
+        name: "Robert Half Japan",
+        domain: "roberthalf.com",
+        url: "https://www.roberthalf.com/jp/en",
+        group: "双语猎头",
+        type: "专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "国际招聘公司日本站，常见财会金融、技术、行政、合同岗位等，适合双语专业求职者。",
+        best: "财务、IT、合同岗位",
+        langs: "English / Japanese",
+        tags: ["猎头", "财务", "IT", "合同"]
+      },
+      {
+        name: "Morgan McKinley Japan",
+        domain: "morganmckinley.com",
+        url: "https://www.morganmckinley.com/jp",
+        group: "双语猎头",
+        type: "专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "面向日本专业人才市场的国际招聘顾问，覆盖金融、技术、会计、风险合规、销售市场等领域。",
+        best: "金融、技术、专业岗位",
+        langs: "English / Japanese",
+        tags: ["猎头", "金融", "技术", "双语"]
+      },
+      {
+        name: "Specialized Group",
+        domain: "specialized-group.com",
+        url: "https://www.specialized-group.com/",
+        group: "双语猎头",
+        type: "外资与专业招聘咨询",
+        status: "active",
+        statusText: "可用",
+        desc: "东京外资和全球企业招聘顾问，覆盖 IT、软件工程、金融、法务合规、消费品、奢侈品、医疗、供应链等专业岗位。",
+        best: "外资、Tech、金融、法务合规",
+        langs: "English / Japanese",
+        tags: ["猎头", "外资", "IT", "专业岗"]
+      },
+      {
+        name: "Apex",
+        domain: "apexkk.com",
+        url: "https://www.apexkk.com/en/",
+        group: "双语猎头",
+        type: "双语专业猎头",
+        status: "active",
+        statusText: "可用",
+        desc: "专注 bilingual executive search，常见领域包括制药、医疗器械、法务合规、技术、HR、财务、供应链、金融服务等。",
+        best: "Life Science、法务、金融、技术",
+        langs: "English / Japanese",
+        tags: ["猎头", "双语", "医疗", "法务"]
+      },
+      {
+        name: "Build+ / Wahl+Case",
+        domain: "buildplus.io",
+        url: "https://buildplus.io/",
+        group: "双语猎头",
+        type: "Tech 与初创招聘",
+        status: "active",
+        statusText: "可用",
+        desc: "原 Wahl+Case 站点现跳转到 Build+，偏日本 Tech、初创、产品、设计、增长和工程岗位，适合英语背景的科技人才关注。",
+        best: "Tech、Startup、Product、Engineering",
+        langs: "English / Japanese",
+        tags: ["猎头", "IT", "Startup", "英语"]
+      },
+      {
+        name: "Randstad Japan",
+        domain: "randstad.co.jp",
+        url: "https://www.randstad.co.jp/",
+        group: "双语猎头",
+        type: "全球人材服务与招聘",
+        status: "active",
+        statusText: "可用",
+        desc: "全球人材服务公司在日本的入口，覆盖派遣、正社员、专业岗位和企业招聘服务；适合同时看合同、派遣和专业转职机会。",
+        best: "派遣、合同、专业转职、HR 服务",
+        langs: "Japanese / English support may vary",
+        tags: ["猎头", "派遣", "合同", "全球"]
+      },
+      {
+        name: "WeXpats Jobs",
+        domain: "we-xpats.com",
+        url: "https://we-xpats.com/en/job/",
+        group: "已停服",
+        type: "历史常见平台",
+        status: "closed",
+        statusText: "已停服",
+        desc: "曾是外国人求职者常见平台。官网公告显示 WeXpats Jobs 已于 2026-04-15 结束招聘服务。",
+        best: "旧文章辨识、历史资料",
+        langs: "多语言",
+        tags: ["已停服", "历史常见", "多语言"]
+      }
+    ];
+
+    const groups = ["全部", "收藏", "综合外籍", "本土平台", "中华圈", "服务兼职", "IT", "双语白领", "双语猎头", "官方与公共", "通用入口", "已停服"];
+    let activeGroup = "全部";
+    let favoriteUrls = new Set();
+    const cards = document.querySelector("#cards");
+    const tabs = document.querySelector("#tabs");
+    const search = document.querySelector("#search");
+    const resultHint = document.querySelector("#resultHint");
+    const empty = document.querySelector("#empty");
+    document.querySelector("#countAll").textContent = platforms.length;
+
+    function loadFavorites() {
+      try {
+        favoriteUrls = new Set(JSON.parse(localStorage.getItem("japanJobNavFavorites") || "[]"));
+      } catch {
+        favoriteUrls = new Set();
+      }
+    }
+
+    function saveFavorites() {
+      localStorage.setItem("japanJobNavFavorites", JSON.stringify([...favoriteUrls]));
+    }
+
+    function favicon(domain) {
+      return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=64`;
+    }
+
+    function iconCopy() {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+    }
+
+    function iconExternal() {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M7 7h10v10"></path></svg>';
+    }
+
+    function iconStar(active) {
+      return active
+        ? '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11.53 2.9a.55.55 0 0 1 .94 0l2.58 5.22 5.76.84a.55.55 0 0 1 .3.94l-4.17 4.06.99 5.74a.55.55 0 0 1-.8.58L12 17.58l-5.15 2.7a.55.55 0 0 1-.8-.58l.99-5.74L2.87 9.9a.55.55 0 0 1 .3-.94l5.76-.84Z"></path></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11.53 2.9a.55.55 0 0 1 .94 0l2.58 5.22 5.76.84a.55.55 0 0 1 .3.94l-4.17 4.06.99 5.74a.55.55 0 0 1-.8.58L12 17.58l-5.15 2.7a.55.55 0 0 1-.8-.58l.99-5.74L2.87 9.9a.55.55 0 0 1 .3-.94l5.76-.84Z"></path></svg>';
+    }
+
+    function chipClass(tag) {
+      if (/IT|远程|海外|No Japanese/.test(tag)) return "blue";
+      if (/签证|特定|官方|公共|本土|聚合/.test(tag)) return "gold";
+      if (/猎头|外资|中高端|双语/.test(tag)) return "violet";
+      if (/兼职|服务|宿舍|短期|中文|华人|社区|第二新卒|女性/.test(tag)) return "teal";
+      if (/可用|全职|专业/.test(tag)) return "green";
+      return "";
+    }
+
+    function platformText(item) {
+      return [item.name, item.group, item.type, item.desc, item.best, item.langs, item.tags.join(" ")].join(" ").toLowerCase();
+    }
+
+    function renderTabs() {
+      tabs.innerHTML = groups.map(group => `
+        <button class="tab" type="button" aria-pressed="${group === activeGroup}" data-group="${group}">${group}</button>
+      `).join("");
+    }
+
+    function renderCards() {
+      const q = search.value.trim().toLowerCase();
+      const filtered = platforms.filter(item => {
+        const groupMatch = activeGroup === "全部" || (activeGroup === "收藏" ? favoriteUrls.has(item.url) : item.group === activeGroup);
+        const queryMatch = !q || platformText(item).includes(q);
+        return groupMatch && queryMatch;
+      }).sort((a, b) => Number(favoriteUrls.has(b.url)) - Number(favoriteUrls.has(a.url)));
+
+      cards.innerHTML = filtered.map(item => `
+        <article class="card" data-url="${item.url}">
+          <div class="topline">
+            <img class="logo" src="${favicon(item.domain)}" alt="${item.name} logo" loading="lazy">
+            <div class="name">
+              <strong>${item.name}</strong>
+              <span>${item.type}</span>
+            </div>
+            <span class="status ${item.status}">${item.statusText}</span>
+          </div>
+          <p class="desc">${item.desc}</p>
+          <div class="meta">
+            <div class="row"><b>适合</b><span>${item.best}</span></div>
+            <div class="row"><b>语言</b><span>${item.langs}</span></div>
+          </div>
+          <div class="chips">${item.tags.map(tag => `<span class="chip ${chipClass(tag)}">${tag}</span>`).join("")}</div>
+          <div class="actions">
+            <a class="visit" href="${item.url}" target="_blank" rel="noreferrer">访问官网 ${iconExternal()}</a>
+            <button class="copy" type="button" aria-label="复制 ${item.name} 链接" data-copy="${item.url}">${iconCopy()}</button>
+            <button class="favorite" type="button" aria-label="${favoriteUrls.has(item.url) ? "取消收藏" : "收藏"} ${item.name}" aria-pressed="${favoriteUrls.has(item.url)}" data-favorite="${item.url}">${iconStar(favoriteUrls.has(item.url))}</button>
+          </div>
+        </article>
+      `).join("");
+
+      empty.style.display = filtered.length ? "none" : "block";
+      const groupText = activeGroup === "全部" ? "全部分类" : activeGroup;
+      resultHint.textContent = `当前显示 ${filtered.length} / ${platforms.length} 个平台 · ${groupText} · 已收藏 ${favoriteUrls.size}`;
+    }
+
+    tabs.addEventListener("click", event => {
+      const button = event.target.closest("button[data-group]");
+      if (!button) return;
+      activeGroup = button.dataset.group;
+      renderTabs();
+      renderCards();
+    });
+
+    search.addEventListener("input", renderCards);
+
+    cards.addEventListener("click", async event => {
+      const favoriteButton = event.target.closest("button[data-favorite]");
+      if (favoriteButton) {
+        const url = favoriteButton.dataset.favorite;
+        if (favoriteUrls.has(url)) {
+          favoriteUrls.delete(url);
+        } else {
+          favoriteUrls.add(url);
+        }
+        saveFavorites();
+        renderCards();
+        return;
+      }
+
+      const button = event.target.closest("button[data-copy]");
+      if (!button) return;
+      const original = button.innerHTML;
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = "已复制";
+        setTimeout(() => { button.innerHTML = original; }, 1100);
+      } catch {
+        button.textContent = "复制失败";
+        setTimeout(() => { button.innerHTML = original; }, 1100);
+      }
+    });
+
+    loadFavorites();
+    renderTabs();
+    renderCards();
+  </script>
+</body>
+</html>
