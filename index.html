@@ -107,6 +107,31 @@
       line-height: 1.72;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .translate-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
+      font-weight: 800;
+      backdrop-filter: blur(10px);
+    }
+
+    .translate-link:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
     .quick-stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -502,6 +527,9 @@
       <div class="eyebrow">Japan Work Links · 2026</div>
       <h1>日本外国人招聘平台导航</h1>
       <p class="lead">收录日本市场常见、对外国求职者友好的招聘平台、双语人才网站、IT 英语岗位站点、猎头渠道和官方入口。按求职场景筛选，少绕路，多投对地方。</p>
+      <div class="hero-actions">
+        <a class="translate-link" href="https://translate.google.com/translate?sl=zh-CN&tl=ja&u=https%3A%2F%2Frououkan.github.io%2Fjapan-foreigner-job-nav%2F" target="_blank" rel="noreferrer">日本語で読む</a>
+      </div>
     </div>
   </header>
 
