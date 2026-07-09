@@ -121,6 +121,13 @@
       line-height: 1.78;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
     .quick-stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -327,6 +334,7 @@
       }
 
       .button { width: 100%; }
+      .hero-actions .button { width: auto; }
       .quick-stats,
       .grid {
         grid-template-columns: 1fr;
@@ -347,6 +355,9 @@
       <div class="eyebrow">新卒就活リンク集 · 外資系志望者向け</div>
       <h1>外資系企業を目指す新卒向け就活サービスナビ</h1>
       <p class="lead">帰国子女、海外大生、バイリンガル新卒、外資・コンサル・金融など難関企業を目指す学生向けに、使い分けやすい就活サービスを整理しました。</p>
+      <div class="hero-actions">
+        <a class="button" href="https://github.com/rououkan/japan-foreigner-job-nav" target="_blank" rel="noreferrer">⭐ GitHubでStar・投稿</a>
+      </div>
     </div>
   </header>
 
