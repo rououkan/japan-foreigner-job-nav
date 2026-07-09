@@ -156,6 +156,19 @@ window.platforms = [
         tags: ["特定技能", "No Nihongo OK", "宿舍", "服务业"]
       },
       {
+        name: "世話カツ",
+        domain: "sewa-katsu.helte-lp.com",
+        url: "https://sewa-katsu.helte-lp.com/",
+        group: "服务兼职",
+        type: "外国人向け就職・移住支援",
+        status: "active",
+        statusText: "可用",
+        desc: "Helte 运营的外国人就职/移住支援服务，主打 N1/N2、日英双语和酒店行业，提供工作匹配、履历与面试、就劳签证和入社后支持；具体费用与支援范围以面谈和条款为准。",
+        best: "N1/N2、酒店业、日英双语、签证/来日支持",
+        langs: "Japanese / English",
+        tags: ["酒店", "N1/N2", "签证支持", "生活支持"]
+      },
+      {
         name: "NINJA",
         domain: "nextinjapan.com",
         url: "https://nextinjapan.com/",
