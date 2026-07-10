@@ -260,6 +260,19 @@ window.platforms = [
         tags: ["中文", "华人公司", "需核验", "在日"]
       },
       {
+        name: "TENJee",
+        domain: "tenjee.com",
+        url: "https://tenjee.com/",
+        group: "中华圈",
+        type: "中国語求人専門サイト",
+        status: "active",
+        statusText: "可用",
+        desc: "株式会社フェローシップ运营的中国语求人专门站，面向在日中国语人才和希望使用中文工作的人，可按日语/中文水平、职种、雇佣形态、薪资等条件检索。",
+        best: "中文岗位、翻译/贸易/客服、在日中文人才",
+        langs: "Japanese / Chinese support via translation",
+        tags: ["中文", "中国語", "派遣", "正社員", "转职"]
+      },
+      {
         name: "Adecco Global Career Program",
         domain: "adecco.com",
         url: "https://www.adecco.com/ja-jp/slp/global-recruit-jp",
