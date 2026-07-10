@@ -117,6 +117,32 @@ window.platforms = [
         tags: ["留学生", "双语", "新卒", "活动"]
       },
       {
+        name: "リュウカツ",
+        domain: "ryugakusei.com",
+        url: "https://ryugakusei.com/",
+        group: "综合外籍",
+        type: "外国人留学生・外国人材向け就職/転職支援",
+        status: "active",
+        statusText: "可用",
+        desc: "面向外国人留学生和外国人材的日本就职支援服务，官网同时提供新卒採用情報和転職情報，常见理系、メーカー、IT、技術職和第二新卒/経験者相关机会。",
+        best: "外国人新卒、第二新卒、理系转职、技术职",
+        langs: "Japanese",
+        tags: ["外国人", "留学生", "新卒", "第二新卒", "转职"]
+      },
+      {
+        name: "キャリタスダイレクト",
+        domain: "direct.career-tasu.jp",
+        url: "https://direct.career-tasu.jp/",
+        group: "综合外籍",
+        type: "留学生・海外大生向けダイレクトリクルーティング",
+        status: "active",
+        statusText: "可用",
+        desc: "Career-tasu 的全球人才向 Direct Recruiting 服务，前身脉络可追溯到 GlobalCareer.com。面向留学生、海外大生、海外经验者和全球人才，可通过个人资料接收企业 Scout 与特别选考案内。",
+        best: "海外大生、留学生、归国/海外经验、新卒 Scout",
+        langs: "Japanese",
+        tags: ["留学生", "海外大", "新卒", "Scout", "GlobalCareer"]
+      },
+      {
         name: "YOLO JAPAN",
         domain: "yolo-japan.com",
         url: "https://www.yolo-japan.com/en/recruit/job?order=new",
@@ -505,6 +531,19 @@ window.platforms = [
         best: "综合职位、企业采访、转职知识",
         langs: "Japanese",
         tags: ["本土", "综合", "女性转职", "Agent"]
+      },
+      {
+        name: "エンゲージ",
+        domain: "en-gage.net",
+        url: "https://en-gage.net/#/allform/top/new",
+        group: "本土平台",
+        type: "転職・バイト・新卒対応の求人サイト",
+        status: "active",
+        statusText: "可用",
+        desc: "en Japan 关联的大型求人サイト，覆盖転職、バイト、新卒等多种雇佣和求职场景。可按働き方、スキル、勤務地等条件检索，也有企业からのオファー機能。",
+        best: "公开求人检索、兼职/正社员、新卒、Offer",
+        langs: "Japanese",
+        tags: ["本土", "新卒", "兼职", "正社員", "Offer"]
       },
       {
         name: "type",
